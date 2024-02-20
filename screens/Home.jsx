@@ -49,16 +49,20 @@ const Home = () => {
         <Welcome />
         <Carousel />
         <Heading />
-        <ProductRow/>
+        <ProductRow />
       </ScrollView>
 
       <TouchableOpacity
         onPress={() => {
           toggleColorScheme();
         }}
-        className="w-24 h-24 m-24 bg-white dark:bg-gray absolute "
+        className="w-24 top-0 h-9 m-9 rounded-full justify-center items-center bg-white dark:bg-gray absolute "
       >
-        <View></View>
+        <View>
+          <Text className="font-extrabold text-lg dark:text-white">
+            {colorScheme == "light" ? "dark" : "light"}
+          </Text>
+        </View>
       </TouchableOpacity>
     </SafeAreaView>
   );

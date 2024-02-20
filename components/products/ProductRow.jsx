@@ -3,10 +3,10 @@ import React from "react";
 import ProductCardView from "./ProductCardView";
 
 const ProductRow = () => {
-  const products = [1, 2, 3, 4];
+  const products = [1, 2, 3, 4,5,6];
 
   return (
-    <View className="mt-4">
+    <View className="mt-2  mb-20 px-2 ">
       <FlatList
         data={products}
         horizontal
