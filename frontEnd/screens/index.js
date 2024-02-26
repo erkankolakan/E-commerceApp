@@ -5,6 +5,7 @@ import Profile from "../screens/Profile";
 import Cart from "../screens/Cart";
 import ProductDetails from "../screens/ProductDetails";
 import NewRivals from "../screens/NewRivals";
+import ProductsList from "../components/products/ProductsList";
 
 
 export{

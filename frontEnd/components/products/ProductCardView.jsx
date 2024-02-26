@@ -3,18 +3,17 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-
-
-
-const ProductCardView = ({item}) => {
+const ProductCardView = ({ item }) => {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("ProductDetails",{item})}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("ProductDetails", { item })}
+    >
       <View className="w-[182px] h-[240px] rounded-xl bg-secondary  ">
         <View className="flex-1 w[170px] m-1 rounded-lg overflow-hidden">
           <Image
-            source={{                              
+            source={{
               uri: item.imageUrl,
             }}
             resizeMode="contain"
