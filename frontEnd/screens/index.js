@@ -4,6 +4,7 @@ import Search from "../screens/Search";
 import Profile from "../screens/Profile";
 import Cart from "../screens/Cart";
 import ProductDetails from "../screens/ProductDetails";
+import NewRivals from "../screens/NewRivals";
 
 
 export{
@@ -11,5 +12,6 @@ export{
     Search,
     Profile,
     Cart,
-    ProductDetails
+    ProductDetails,
+    NewRivals
 }
