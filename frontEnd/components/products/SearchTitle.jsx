@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 const SearchTitle = ({ item }) => {
     const navigation = useNavigation();
   return (
-    <TouchableOpacity className="w-full flex-row h-20 mb-4 rounded-lg bg-white dark:bg-gri"
+    <TouchableOpacity className="w-full flex-row h-20 mb-4 rounded-lg bg-white dark:bg-gri "
         onPress={() => {
             navigation.navigate("ProductDetails", item={item});
             }}
@@ -19,9 +19,9 @@ const SearchTitle = ({ item }) => {
         />
       </View>
         <View className="flex-1 justify-center">
-            <Text className="text-lg text-primary font-bold">{item.title}</Text>
-            <Text className="text-gray">{item.supplier}</Text>
-            <Text className="text-gray">${item.price}</Text>
+            <Text className="text-lg text-primary dark:text-primaryDark font-bold">{item.title}</Text>
+            <Text className="text-gray dark:text-beyazbo">{item.supplier}</Text>
+            <Text className="text-gray dark:text-beyazbo">${item.price}</Text>
         </View>
     </TouchableOpacity>
   );

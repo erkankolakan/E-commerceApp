@@ -1,6 +1,4 @@
 import {
-  StyleSheet,
-  Text,
   View,
   TouchableOpacity,
   TextInput,
@@ -11,7 +9,6 @@ import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import axios from "axios";
-import ProductCardView from "../components/products/ProductCardView";
 import SearchTitle from "../components/products/SearchTitle";
 
 const Search = () => {
@@ -81,4 +78,3 @@ const Search = () => {
 
 export default Search;
 
-const styles = StyleSheet.create({});

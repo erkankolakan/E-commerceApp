@@ -32,7 +32,7 @@ module.exports = {
         lightWhite: "#FAFAFC",
         beyazark: "#F1F1F1",
         beyazbo: "#dddddd",
-        gri: "#3E3E3E",
+        gri: "#656565",
         gri2: "#3a3a3a",
       },
     },
