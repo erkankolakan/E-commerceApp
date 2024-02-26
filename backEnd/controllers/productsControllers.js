@@ -14,10 +14,9 @@ module.exports = {
   getAllProduct: async (req, res) => {
     try {
       // const products = await Products.find(); /-> hepsini getir demek
-      const products = await Products.find.sort({createdAt: -1});
-
+      const products = await Products.find().sort({ _id: -1 });
       res.status(200).json(products);
-        } catch (err) {
+    } catch (err) {
       res.status(500).json("failed to get the products");
     }
   },
@@ -30,10 +29,10 @@ module.exports = {
       res.status(500).json("failed to get the product");
     }
   },
-  
-  searchProduct: async (req, res ) => {
+
+  searchProduct: async (req, res) => {
     try {
-      const result = await Productsaggregate(
+      const result = await Products.aggregate([
         [
           {
             $search: {
@@ -41,16 +40,17 @@ module.exports = {
               text: {
                 query: req.params.key,
                 path: {
-                  wildcard: "*"
-                }
-              }
-            }
-          }
-        ]
-      )
+                  wildcard: "*",
+                },
+              },
+            },
+          },
+        ],
+      ]);
+
       res.status(200).json(result);
     } catch (err) {
       res.status(500).json("failed to get the products");
-    }  
-  }
+    }
+  },
 };
