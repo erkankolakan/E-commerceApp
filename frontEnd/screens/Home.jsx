@@ -18,8 +18,8 @@ import ProductRow from "../components/products/ProductRow";
 const Home = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   return (
-    <SafeAreaView className="dark:bg-gri2 flex-1">
-      <View className="mx-[22px] mt-4 ">
+    <SafeAreaView className="dark:bg-gri2  flex-1">
+      <View className="mx-[22px] mt-4 pb-2 ">
         <View className="flex-row justify-between">
           <Ionicons
             name="location-outline"
@@ -45,7 +45,7 @@ const Home = () => {
         </View>
       </View>
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Welcome />
         <Carousel />
         <Heading />
