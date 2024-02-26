@@ -30,7 +30,7 @@ const ProductsList = () => {
         ItemSeparatorComponent={() => (
           <View
             style={{
-              height: 20,
+              height: 10,
             }}
           />
         )}

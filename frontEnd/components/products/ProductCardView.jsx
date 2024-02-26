@@ -9,8 +9,10 @@ const ProductCardView = ({ item }) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate("ProductDetails", { item })}
+      className="py-2"
+      activeOpacity={0.8}
     >
-      <View className="w-[182px] h-[240px] rounded-xl bg-secondary  ">
+      <View className="w-[182px] h-[240px] rounded-xl bg-secondary shadow shadow-gri   ">
         <View className="flex-1 w[170px] m-1 rounded-lg overflow-hidden">
           <Image
             source={{
