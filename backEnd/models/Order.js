@@ -10,8 +10,7 @@ const OrderSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    productId: {
-      //-> product id nin tablosunu direk buraya çağırıyoruz
+    productId: {//-> product id nin tablosunu direk buraya çağırıyoruz
       type: mongoose.Schema.Types.ObjectId,
       ref: "Products",
     },
