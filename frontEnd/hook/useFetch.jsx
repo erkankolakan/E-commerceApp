@@ -1,17 +1,20 @@
 import { View, Text } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useIpify } from "../Context/Ipify";
+import env from "../env";
+
 
 const useFetch = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  
 
   const fetchData = async () => {
     setIsLoading(true);
     try {
-        const response = await axios.get("http://172.2.1.144:3000/api/products/");
+        const response = await axios.get(`http://${env.IP}:3000/api/products/`);
         setData(response.data);
         setIsLoading(false);
     } catch (error) {

@@ -10,6 +10,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import axios from "axios";
 import SearchTitle from "../components/products/SearchTitle";
+import env from "../env";
+
 
 const Search = () => {
   const [searchKey, setSearchKey] = useState("");
@@ -18,7 +20,7 @@ const Search = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://172.2.1.144:3000/api/products/search/${searchKey}`
+        `http://${env.IP}:3000/api/products/search/${searchKey}`
       );
       setSearchResults(response.data);
     } catch (error) {
@@ -77,4 +79,3 @@ const Search = () => {
 };
 
 export default Search;
-
