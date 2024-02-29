@@ -4,44 +4,40 @@ const jwt = require("jsonwebtoken");
 
 module.exports = {
   createUser: async (req, res) => {
-    const newUser = new User({
-      username: req.body.username,
-      email: req.body.email,
-      location: req.body.location,
-      password: CryptoJS.AES.encrypt( req.body.password, process.env.SECRET_KEY).toString(), //-> şifrelenmiş pass
-    });
     try {
-      await newUser.save();
-      res.status(201).json({ message: "User created successfully" });
+      await User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: CryptoJS.AES.encrypt(req.body.password, process.env.SECRET_KEY).toString(),
+        location: req.body.location,
+      });
+      res.status(201).json({ message:"User successfully created"});
     } catch (error) {
       res.status(500).json({ message: error });
     }
+
   },
 
   loginUser: async(req, res) => {
     try {
-        const user = await User.findOne({email: req.body.email});
-        !user && res.status(401).json("Wrong credentials provide a valid email")
+      const user = await User.findOne({ email: req.body.email });
+      !user && res.status(401).json("Wrong email or password");
 
-        const decryptedPassword = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY)
-        const decryptedpass = decryptedPassword.toString(CryptoJS.enc.Utf8)
+      const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
+      const originalPassword = bytes.toString(CryptoJS.enc.Utf8);
 
-        decryptedpass !== res.body.password && res.status(401).json("Wrong password")
+      originalPassword !== req.body.password && res.status(401).json("Wrong email or password");
 
-        const userToken = jwt.sing(
-            {
-                id: user.id
-            }, process.env.JWT_SEC, {expiresIn : "7d"}
-        );
-
-        const  {password, __v, createAt, updateAt, ...userData} = user._doc;
-
-        console.log(...userData);
-    
-        res.status(200).json({...userData, token: userToken})
-    
+      const accessToken = jwt.sign(
+        { id: user._id, isAdmin: user.isAdmin },
+        process.env.SECRET_KEY,
+        { expiresIn: "5d" }
+      );
+                                                                         
+      const { password, ...info } = user._doc;
+      res.status(200).json({ ...info, accessToken });
     } catch (error) {
-        res.status(500).json({ message: error });
+      res.status(500).json({ message: error });
     }
   },
 };

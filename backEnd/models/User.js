@@ -1,5 +1,13 @@
 const { default: mongoose } = require("mongoose");
 
+// {
+//   "username": "Erkan Kolakan",
+//   "email": "selamssnya@gmail.com",
+//   "password": "kolakan21",
+//   "location": "Diyarbakırr"
+// }
+
+
 const UserSchema = new mongoose.Schema(
   {
     username: {
@@ -10,6 +18,10 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true, //-> data aynı isimden bir tane daha olmaz benzersiz isimler olması gerekir. ID gibi
+    },
+    password: {
+      type: String,
+      required: true,
     },
     location: {
       type: String,
