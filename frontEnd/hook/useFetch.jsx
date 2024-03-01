@@ -1,7 +1,6 @@
 import { View, Text } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useIpify } from "../Context/Ipify";
 import env from "../env";
 
 
