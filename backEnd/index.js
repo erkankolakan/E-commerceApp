@@ -40,8 +40,8 @@ app.use(
 app.use("/api/products", productsRouter);
 app.use("/api", authRouter);
 app.use("/api/users", userRouter);
-// app.use("/api/orders", orderRouter);
-// app.use("/api/cart", cartRouter);
+app.use("/api/cart", cartRouter);
+
                                           
 app.listen(process.env.PORT || port, () =>
   console.log(`Example app listening on port ${process.env.PORT}!`)
