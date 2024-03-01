@@ -4,8 +4,14 @@ import { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import BottomTabNavigation from "./navigation/BottomTabNavigation";
-import { Cart, ProductDetails, NewRivals } from "./screens/index";
-
+import {
+  Cart,
+  ProductDetails,
+  NewRivals,
+  LoginPage,
+  Orders,
+  Favorites,
+} from "./screens/index";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,37 +38,58 @@ export default function App() {
   }
 
   return (
-      <NavigationContainer onReady={onLayoutRootView}>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Bottom Navigation"
-            component={BottomTabNavigation}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="Cart"
-            component={Cart}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="ProductDetails"
-            component={ProductDetails}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="ProductList"
-            component={NewRivals}
-            options={{
-              headerShown: false,
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+    <NavigationContainer onReady={onLayoutRootView}>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Bottom Navigation"
+          component={BottomTabNavigation}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Cart"
+          component={Cart}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ProductDetails"
+          component={ProductDetails}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ProductList"
+          component={NewRivals}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={LoginPage}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Orders"
+          component={Orders}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Favorites"
+          component={Favorites}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }

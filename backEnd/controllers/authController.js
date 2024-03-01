@@ -5,13 +5,13 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   createUser: async (req, res) => {
     try {
-      await User.create({
+      const user = await User.create({
         username: req.body.username,
         email: req.body.email,
         password: CryptoJS.AES.encrypt(req.body.password, process.env.SECRET_KEY).toString(),
         location: req.body.location,
       });
-      res.status(201).json({ message:"User successfully created"});
+      res.status(201).json({ message:"User successfully created", user});
     } catch (error) {
       res.status(500).json({ message: error });
     }
