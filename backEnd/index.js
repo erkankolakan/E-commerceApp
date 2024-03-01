@@ -7,6 +7,12 @@ const app = express();
 // router
 const productsRouter = require("./routers/products");
 const authRouter = require("./routers/auth");
+const userRouter = require("./routers/user");
+const orderRouter = require("./routers/order");
+const cartRouter = require("./routers/cart");
+
+
+
 const port = 3000;
 
 dotenv.config(); //--> .env dosyasına erişir
@@ -32,8 +38,11 @@ app.use(
 
 // routes
 app.use("/api/products", productsRouter);
-app.use("/api/", authRouter);
-
+app.use("/api", authRouter);
+app.use("/api/users", userRouter);
+// app.use("/api/orders", orderRouter);
+// app.use("/api/cart", cartRouter);
+                                          
 app.listen(process.env.PORT || port, () =>
   console.log(`Example app listening on port ${process.env.PORT}!`)
 );
